@@ -1,0 +1,113 @@
+.DS_Store
+.idea/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Generated figures and reports
+*.png
+*.pdf
+!docs/assets/readme/*.png
+
+# Local result/features/model artifacts
+/Results/
+/esm2_t36_3B_UR50D_embeddings_ptm/
+/data/*
+!/data/README.md
+!/data/*.tar.gz
+/mutation_result_reclip*/
+/mutation_result_mint_global_embed/
+/mutation_result_mint_pair_embed/
+/peptide_result_reclip/
+/peptide_result_mint_cross_attn/
+/peptide_result_mint_pair_embed/
+/ptm_result_reclip/
+/classI_result_reclip/
+/swing-github-code/
+/mint/
+/analyse/
+/ukbb/
+
+# Local data/model assets not included in the repo
+/data/ClassI_Model/
+/data/ClassII_Model/
+/data/MixedClass_Model/
+/data/__MACOSX/
+/data/manuscript_files/
+/data/four_classes_mutation/alpha_missense_data/
+/data/mutation_data/
+/data/mutation_data.zip
+/data/ptm/_label_fix_backups/
+/data/ptm/PrimateAI/
+/data/ptm/alpha_missense_data/
+
+# Local Codex workspace artifacts
+/.codex
+/.codex_backups/
+
+# Runtime outputs under scripts
+scripts/**/__pycache__/
+scripts/**/logs/
+scripts/**/snapshots/
+scripts/**/output/
+scripts/**/outputs/
+scripts/**/figures/
+scripts/**/figures2/
+scripts/**/figures3/
+scripts/**/checkpoints/
+scripts/**/_tmp*
+scripts/**/*.model
+scripts/**/*.npy
+scripts/**/*.npz
+scripts/**/*.pkl
+scripts/**/*.pt
+scripts/**/*.pth
+scripts/**/*.ckpt
+scripts/**/*.bin
+scripts/**/*.arrow
+scripts/**/*.log
+scripts/**/*.pid
+scripts/**/*status.json
+scripts/**/notebook_outputs/
+scripts/**/outputs_prelabelfix/
+
+# Manuscript task benchmark plotting bundles withheld during revision
+/scripts/four_classes_mutation/figure_plot/
+/scripts/ptm/figure_plot/
+/scripts/peptide/figure_plot/
+/scripts/ablation/data/
+/scripts/ablation/notebooks/
+/scripts/ablation/outputs/
+/scripts/ablation/runs/
+scripts/four_classes_mutation/ReCLIP/results/
+scripts/ptm/ReCLIP/results/
+scripts/peptide/ReCLIP/results/
+
+# Local exploratory code/results not intended for release
+scripts/ptm/self_attention/
+scripts/*/per_head_attention/
+scripts/*/SWING/ablation/
+scripts/ptm/mint_partner_feature/
+scripts/suppplement_figure/
+scripts/four_classes_mutation/figure_plot/binary classification/
+scripts/peptide/*.sh
+
+# Local experiment notes not intended for release
+/PTM_RANDOM_TOPK_AND_EMBEDDING_SIMILARITY_CONTEXT.md
+/PTM_VALIDATION_EXPERIMENTS_README.md
+
+# BERT run artifacts
+scripts/peptide/bert/BERTiLM/BERTiLM/peptide_bert_runs/
+
+# Baseline raw data kept locally
+scripts/*/PrimateAI/*.csv
+
+# Large local new_analyse data files
+/new_analyse/allset_self_attn_3d_distances_out.tsv
+/new_analyse/allset_self_attn_same_interval_domain_visual_new_method/sample_stats.tsv
+/new_analyse/functional_site_3d_top5_mutated_vs_random5_new_method/position_level.tsv
+/new_analyse/reclip_results/mutation_reclip_mintpartnerL32_L32_hall_flatten_context_ln_k5_self_attention_rank_table.tsv
+/new_analyse/reclip_results/mutation_reclip_mintpartnerL32_L32_hall_flatten_context_ln_k5_self_attention_rank_table_only_our_right_no_0_subset.tsv
+analysis/
