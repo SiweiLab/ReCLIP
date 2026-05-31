@@ -61,6 +61,7 @@ FEATURE_CACHE_SUBDIR = "Feature_cache_clinvar"
 
 # ===================== Argparse =====================
 
+# Parse command-line options for batch inference.
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(
         description="Inference on new mutation-interaction dataset using best XGBoost model."
@@ -89,6 +90,7 @@ def parse_args() -> argparse.Namespace:
 
 # ===================== Utils & loaders =====================
 
+# Normalize positive or negative layer indices into a valid range.
 def _norm_single_layer(select_layer: int, num_layers: int) -> int:
     li = select_layer
     if li < 0:
@@ -98,6 +100,7 @@ def _norm_single_layer(select_layer: int, num_layers: int) -> int:
     return li
 
 
+# Load the HuggingFace ESM2 model and select the configured layer.
 def load_hf_esm2() -> Tuple[AutoTokenizer, EsmModel, int, str]:
     print("Loading ESM2 (HuggingFace) model for inference ...")
     hf_tok = AutoTokenizer.from_pretrained(HF_MODEL_ID)
@@ -107,6 +110,7 @@ def load_hf_esm2() -> Tuple[AutoTokenizer, EsmModel, int, str]:
     return hf_tok, hf_model, layer_idx, layer_tag
 
 
+# Load the MINT multimer model, checkpoint, and alphabet.
 def load_mint_model() -> Tuple[MintESM2, Alphabet, int]:
     if not os.path.exists(MINT_CFG_PATH):
         raise FileNotFoundError(f"MINT config not found: {MINT_CFG_PATH}")
@@ -137,6 +141,7 @@ def load_mint_model() -> Tuple[MintESM2, Alphabet, int]:
     return model, alphabet, cfg.encoder_layers
 
 
+# Extract a sequence window centered on the queried residue.
 def _extract_center_window(seq: str, center_idx: int, max_len: int) -> Tuple[str, int]:
     if len(seq) <= max_len:
         return seq, center_idx
@@ -150,6 +155,7 @@ def _extract_center_window(seq: str, center_idx: int, max_len: int) -> Tuple[str
     return seq[start:end], new_center
 
 
+# Trim the target and partner pair to fit ESM2/MINT token budgets.
 def truncate_pair_for_models(
     mut_seq: str,
     partner_seq: str,
@@ -169,6 +175,7 @@ def truncate_pair_for_models(
     return mut_window, partner_window, new_mut_pos
 
 
+# Extract amino-acid ESM2 embeddings for one sequence.
 @torch.no_grad()
 def hf_token_emb_aa(
     seq: str,
@@ -192,6 +199,7 @@ def hf_token_emb_aa(
     return H_aa.detach().cpu().to(torch.float32).numpy()
 
 
+# Extract the self-attention row for the queried residue.
 @torch.no_grad()
 def hf_self_attention_vector(
     seq: str,
@@ -224,11 +232,13 @@ def hf_self_attention_vector(
     return vec.detach().cpu().to(torch.float32).numpy()
 
 
+# Encode one protein chain with MINT special tokens.
 def _encode_chain(seq: str, alphabet: Alphabet) -> torch.Tensor:
     tokens = alphabet.encode("<cls>" + seq.replace("J", "L") + "<eos>")
     return torch.tensor(tokens, dtype=torch.long)
 
 
+# Compute partner-residue weights from MINT cross-chain attention.
 @torch.no_grad()
 def mint_cross_attention_weights(
     mut_seq: str,
@@ -279,6 +289,7 @@ def mint_cross_attention_weights(
     return att_weights.detach().cpu().to(torch.float32).numpy()
 
 
+# Build a stable cache key for one mutation-interactor row.
 def _make_sample_key(row) -> str:
     """
     Key rule exactly consistent with the training script:
@@ -308,6 +319,7 @@ def _make_sample_key(row) -> str:
     return "||".join([str(tgt), str(mut_val), str(pos), str(inter)])
 
 
+# Build ReCLIP feature vectors for all inference rows.
 def build_features(
     df: pd.DataFrame,
     hf_tok: AutoTokenizer,
@@ -394,6 +406,7 @@ def build_features(
     return X, keys
 
 
+# Load the global feature cache and compute any missing rows.
 def prepare_feature_cache_for_df(
     df: pd.DataFrame,
     hf_tok: AutoTokenizer,
@@ -465,6 +478,7 @@ def prepare_feature_cache_for_df(
 
 # ===================== Dataset loader for inference =====================
 
+# Load and normalize the input table for inference.
 def load_inference_dataset(path: str, sep: str) -> pd.DataFrame:
     print(f"Loading inference dataset: {path}")
     if sep == "\\t":
@@ -494,6 +508,7 @@ def load_inference_dataset(path: str, sep: str) -> pd.DataFrame:
 
 # ===================== Main =====================
 
+# Run model loading, feature generation, prediction, and output writing.
 def main():
     args = parse_args()
     np.random.seed(RANDOM_SEED)
