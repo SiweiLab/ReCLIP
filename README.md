@@ -18,6 +18,8 @@ residues are most informative for the interaction outcome.
 This repository contains the source code, baseline implementations, ablation
 analyses, and compressed task data used for the ReCLIP manuscript.
 
+<br>
+
 <p align="center">
   <strong>Figure 1 | Overview of ReCLIP for residue-centered modeling of protein-protein interactions (PPIs).</strong>
 </p>
@@ -55,6 +57,8 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <details>
 <summary>Mutation effect prediction</summary>
 
+<br>
+
 <p align="center">
   <strong>Figure 2 | ReCLIP accurately predicts mutation-induced perturbations to PPIs.</strong>
 </p>
@@ -67,6 +71,8 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 
 <details>
 <summary>PTM effect prediction</summary>
+
+<br>
 
 <p align="center">
   <strong>Figure 3 | ReCLIP generalizes to PTM-regulated interaction perturbations.</strong>
@@ -81,6 +87,8 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <details>
 <summary>Peptide-MHC binding prediction</summary>
 
+<br>
+
 <p align="center">
   <strong>Figure 4 | ReCLIP enables zero-shot prediction of peptide-MHC binding.</strong>
 </p>
@@ -94,6 +102,8 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <details>
 <summary>Biological interpretation</summary>
 
+<br>
+
 <p align="center">
   <strong>Figure 5 | ReCLIP captures biologically meaningful residue contexts.</strong>
 </p>
@@ -106,6 +116,8 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 
 <details>
 <summary>Clinical application</summary>
+
+<br>
 
 <p align="center">
   <strong>Figure 6 | ReCLIP identifies clinically relevant interaction perturbations.</strong>
