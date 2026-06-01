@@ -19,7 +19,7 @@ This repository contains the source code, baseline implementations, ablation
 analyses, and compressed task data used for the ReCLIP manuscript.
 
 <p align="center">
-  Figure 1 | Overview of ReCLIP for residue-centered modeling of protein-protein interactions (PPIs).
+  <strong>Figure 1 | Overview of ReCLIP for residue-centered modeling of protein-protein interactions (PPIs).</strong>
 </p>
 
 <p align="center">
@@ -56,7 +56,7 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <summary>Mutation effect prediction</summary>
 
 <p align="center">
-  Figure 2 | ReCLIP accurately predicts mutation-induced perturbations to PPIs.
+  <strong>Figure 2 | ReCLIP accurately predicts mutation-induced perturbations to PPIs.</strong>
 </p>
 
 <p align="center">
@@ -69,7 +69,7 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <summary>PTM effect prediction</summary>
 
 <p align="center">
-  Figure 3 | ReCLIP generalizes to PTM-regulated interaction perturbations.
+  <strong>Figure 3 | ReCLIP generalizes to PTM-regulated interaction perturbations.</strong>
 </p>
 
 <p align="center">
@@ -82,7 +82,7 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <summary>Peptide-MHC binding prediction</summary>
 
 <p align="center">
-  Figure 4 | ReCLIP enables zero-shot prediction of peptide-MHC binding.
+  <strong>Figure 4 | ReCLIP enables zero-shot prediction of peptide-MHC binding.</strong>
 </p>
 
 <p align="center">
@@ -95,7 +95,7 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <summary>Biological interpretation</summary>
 
 <p align="center">
-  Figure 5 | ReCLIP captures biologically meaningful residue contexts.
+  <strong>Figure 5 | ReCLIP captures biologically meaningful residue contexts.</strong>
 </p>
 
 <p align="center">
@@ -108,7 +108,7 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <summary>Clinical application</summary>
 
 <p align="center">
-  Figure 6 | ReCLIP identifies clinically relevant interaction perturbations.
+  <strong>Figure 6 | ReCLIP identifies clinically relevant interaction perturbations.</strong>
 </p>
 
 <p align="center">
