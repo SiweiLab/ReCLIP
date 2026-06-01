@@ -23,8 +23,3 @@ tar -xzf data/ptm.tar.gz
 These archives intentionally exclude AlphaMissense, AlphaFold, PrimateAI, and
 local backup outputs. Model checkpoints such as `mint/mint.ckpt` are still
 downloaded separately as described in the root README.
-
-Compact plotting inputs for the retained residue-context analysis figures are
-stored under `analysis/figure_plot/full_hall/data/`. Task-level manuscript
-plotting notebooks and plotting tables are temporarily withheld while
-manuscript revisions are in progress.

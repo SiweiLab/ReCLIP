@@ -9,91 +9,110 @@
 <h2 align="center">Learning residue-level context for modeling protein-protein interactions</h2>
 
 ReCLIP (<u>Re</u>sidue-level <u>C</u>ontext <u>L</u>earning for
-<u>I</u>nteracting <u>P</u>roteins) is a residue-centered framework for modeling
-protein-protein interactions (PPIs). Instead of compressing an interacting
-protein pair into a single global embedding, ReCLIP asks which residues around a
-site of interest and which partner residues are most informative for the
-interaction outcome.
+<u>I</u>nteracting <u>P</u>roteins) is a transformer-based framework for
+modeling protein-protein interactions (PPIs) at residue resolution. Instead of
+compressing an interacting protein pair into a single global embedding, ReCLIP
+asks which residues around a site of interest and which interaction partner
+residues are most informative for the interaction outcome.
 
-This repository contains the source code, retained baselines, ablations,
-compressed task data, and retained analysis plotting bundles used for the
-ReCLIP manuscript.
+This repository contains the source code, baseline implementations, ablation
+analyses, and compressed task data used for the ReCLIP manuscript.
 
 <p align="center">
-  <img src="docs/assets/readme/reclip_overview.png" width="760" alt="Overview of the ReCLIP framework">
+  <img src="docs/assets/readme/figure1_overview.png" width="760" alt="Figure 1 overview of ReCLIP">
 </p>
 
 <p align="center">
-  <em>Overview of the ReCLIP framework for residue-centered modeling of mutation-induced, PTM-regulated, and peptide-MHC protein interactions.</em>
+  <em>Figure 1 | Overview of ReCLIP for residue-centered modeling of protein-protein interactions (PPIs).</em>
 </p>
 
 <p align="center">
   <a href="#highlights">Highlights</a> |
-  <a href="#current-manuscript-results">Results</a> |
+  <a href="#main-results">Main Results</a> |
   <a href="#repository-layout">Layout</a> |
   <a href="#installation">Installation</a> |
   <a href="#running-key-pipelines">Examples</a> |
-  <a href="#figures-and-ablations">Figures</a> |
   <a href="#data-and-artifacts">Artifacts</a> |
   <a href="#citation">Citation</a>
 </p>
 
 ## Highlights
 
-- **Mutation-induced PPI perturbations:** four-class prediction of disrupting,
-  decreasing, increasing, and no-effect mutations.
-- **PTM-regulated PPIs:** binary prediction of enhancing or inhibiting
-  post-translational modifications, including cases with no primary sequence
-  change.
-- **Peptide-MHC binding:** zero-shot evaluation across unseen MHC alleles.
-- **Interpretable residue context:** attention-derived residue neighborhoods
-  identify structurally and functionally coherent regions around the queried
-  residue.
+- **Mutation effect prediction:** ReCLIP predicts mutation-induced interaction perturbations across four effect classes.
+- **PTM effect prediction:** ReCLIP generalizes to interaction perturbations that do not require explicit sequence changes.
+- **Peptide-MHC binding prediction:** ReCLIP supports zero-shot prediction across unseen MHC alleles.
+- **Biological interpretation:** ReCLIP-prioritized residues capture structurally and functionally coherent residue contexts.
+- **Clinical application:** ReCLIP identifies clinically relevant interaction perturbations from human variant annotations.
 
-## Current Manuscript Results
+## Main Results
 
-These values are taken from the current manuscript draft and should be checked
-against the final accepted version before release tagging.
-
-| Task | Dataset / setting | Main result |
+| ReCLIP application | Key capability | Performance |
 | --- | --- | --- |
-| Mutation-induced PPI perturbation | IntAct missense perturbation data; four-class classification | AUROC = 0.973, balanced accuracy = 0.805 |
-| PTM-regulated PPI perturbation | PTMint enhancing vs inhibiting interactions | AUROC = 0.822 |
-| Peptide-MHC binding | Held-out MHC alleles under zero-shot evaluation | AUROC up to 0.972 |
-| Residue-context interpretation | ReCLIP-prioritized residues vs matched random residues | Enriched for structural proximity and functional sites |
+| Mutation effect prediction | Predict mutation-induced interaction perturbations | AUROC = 0.973 |
+| PTM effect prediction | Generalize beyond explicit sequence changes | AUROC = 0.822 |
+| Peptide-MHC binding | Robust zero-shot prediction on unseen alleles | AUROC up to 0.972 |
 
 <details>
-<summary>Mutation benchmark</summary>
+<summary>Mutation effect prediction</summary>
 
 <p align="center">
-  <img src="docs/assets/readme/mutation_benchmark.png" width="820" alt="Mutation-induced PPI perturbation benchmark">
+  <img src="docs/assets/readme/figure2_mutation.png" width="820" alt="Figure 2 mutation effect prediction benchmark">
+</p>
+
+<p align="center">
+  <em>Figure 2 | ReCLIP accurately predicts mutation-induced perturbations to PPIs.</em>
 </p>
 
 </details>
 
 <details>
-<summary>PTM benchmark</summary>
+<summary>PTM effect prediction</summary>
 
 <p align="center">
-  <img src="docs/assets/readme/ptm_benchmark.png" width="720" alt="PTM-regulated PPI perturbation benchmark">
+  <img src="docs/assets/readme/figure3_ptm.png" width="760" alt="Figure 3 PTM effect prediction benchmark">
+</p>
+
+<p align="center">
+  <em>Figure 3 | ReCLIP generalizes to PTM-regulated interaction perturbations.</em>
 </p>
 
 </details>
 
 <details>
-<summary>Peptide-MHC benchmark</summary>
+<summary>Peptide-MHC binding prediction</summary>
 
 <p align="center">
-  <img src="docs/assets/readme/pmhc_benchmark.png" width="720" alt="Peptide-MHC binding benchmark">
+  <img src="docs/assets/readme/figure4_pmhc.png" width="760" alt="Figure 4 peptide-MHC binding prediction benchmark">
+</p>
+
+<p align="center">
+  <em>Figure 4 | ReCLIP enables zero-shot prediction of peptide-MHC binding.</em>
 </p>
 
 </details>
 
 <details>
-<summary>Residue-context interpretation</summary>
+<summary>Biological interpretation</summary>
 
 <p align="center">
-  <img src="docs/assets/readme/interpretation.png" width="720" alt="Residue-context interpretation analysis">
+  <img src="docs/assets/readme/figure5_interpretation.png" width="760" alt="Figure 5 biological interpretation analysis">
+</p>
+
+<p align="center">
+  <em>Figure 5 | ReCLIP captures biologically meaningful residue contexts.</em>
+</p>
+
+</details>
+
+<details>
+<summary>Clinical application</summary>
+
+<p align="center">
+  <img src="docs/assets/readme/figure6_application_clinvar.png" width="760" alt="Figure 6 ClinVar clinical application analysis">
+</p>
+
+<p align="center">
+  <em>Figure 6 | ReCLIP identifies clinically relevant interaction perturbations.</em>
 </p>
 
 </details>
@@ -105,18 +124,18 @@ scripts/
   four_classes_mutation/        Mutation pipelines and retained baselines
   ptm/                          PTM pipelines and retained baselines
   peptide/                      Peptide-MHC pipelines and retained baselines
+  clinvar/                      ClinVar interaction perturbation inference
   ablation/                     Lightweight scripts for rerunning ablation settings
 
-analysis/                       Figure 5 residue-context analysis plotting bundle
 data/                           Compressed task dataset archives and extraction notes
 docs/assets/readme/             README-ready rendered manuscript figures
 requirements.txt                Core Python dependencies for repository scripts
 ```
 
 The main ReCLIP implementations are under the task-level `ReCLIP/`
-subdirectories. The release excludes earlier binary mutation pipelines,
-legacy cross-attention experiments, ESM-pLM/ESum-pLM folders, and
-global-embedding and local automation experiment scripts.
+subdirectories. The release excludes earlier binary mutation pipelines, legacy
+cross-attention experiments, ESM-pLM/ESum-pLM folders, and global-embedding and
+local automation experiment scripts.
 
 ## Installation
 
@@ -125,7 +144,7 @@ you use CUDA, install the PyTorch build that matches your driver before running
 the full feature builders.
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/SiweiLab/ReCLIP.git
 cd ReCLIP
 
 python -m venv .venv
@@ -167,29 +186,26 @@ outputs.
 Run commands from the repository root unless a script-specific README says
 otherwise.
 
-### Four-class mutation benchmark
+### Mutation effect prediction
 
 ```bash
 python scripts/four_classes_mutation/ReCLIP/run_reclip_prediction_save.py \
   --classifier xgb
 ```
 
-Outputs include fold metrics, metadata, and out-of-fold predictions. The
-manuscript benchmark plotting notebooks and compact plotting tables for this
-task are temporarily withheld while manuscript revisions are in progress.
+Outputs include fold metrics, metadata, grouped predictions, and out-of-fold
+predictions.
 
-### PTM benchmark
+### PTM effect prediction
 
 ```bash
 python scripts/ptm/ReCLIP/esm2_ptm_reclip_prediction_save.py \
   --classifier xgb
 ```
 
-Outputs are written to `Results/` and `ptm_result_reclip/`. The manuscript
-benchmark plotting notebooks and compact plotting tables for this task are
-temporarily withheld while manuscript revisions are in progress.
+Outputs are written to `Results/` and `ptm_result_reclip/`.
 
-### Peptide-MHC benchmark
+### Peptide-MHC binding prediction
 
 ```bash
 python scripts/peptide/ReCLIP/esm2_peptide_reclip_crosspred_save.py \
@@ -197,30 +213,21 @@ python scripts/peptide/ReCLIP/esm2_peptide_reclip_crosspred_save.py \
   --classifier xgb
 ```
 
-## Figures and Ablations
+### ClinVar interaction perturbation inference
 
-Task-level manuscript plotting notebooks and compact plotting tables for the
-mutation, PTM, and peptide-MHC benchmarks are temporarily withheld from the
-public repository while manuscript revisions are in progress.
-
-The ablation plotting notebook, plotting tables, and preview figures are
-temporarily withheld while manuscript revisions are in progress. Lightweight
-scripts for rerunning layer and top-k ablation settings are kept in
-`scripts/ablation/`; see [scripts/README.md](scripts/README.md) and
-[scripts/ablation/README.md](scripts/ablation/README.md) for details.
-
-The residue-context Figure 5 analysis bundle is retained under
-`analysis/figure_plot/`.
-
-The README images were rendered from local manuscript figure PDFs. The PNG
-assets in `docs/assets/readme/` are the files intended for GitHub display; the
-source manuscript PDFs are not part of this source release.
+```bash
+python scripts/clinvar/cross_attention_IntAct_mutation_xgb_inference_clinvar.py \
+  --input <clinvar_interactions.tsv> \
+  --model <trained_xgboost.pkl> \
+  --output <scored_interactions.tsv> \
+  --sep "\t"
+```
 
 ## Data and Artifacts
 
-The repository is organized to keep reusable code, compressed task datasets, and
-the retained residue-context analysis plotting bundle under version control
-while avoiding checkpoints and large local caches. Scripts may create:
+The repository is organized to keep reusable code and compressed task datasets
+under version control while avoiding checkpoints and large local caches. Scripts
+may create:
 
 - `Results/`
 - `Feature_cache/`
@@ -230,11 +237,10 @@ while avoiding checkpoints and large local caches. Scripts may create:
 
 These are runtime artifacts and are ignored by Git. The bundled data archives
 contain the task inputs needed by the main scripts; MINT checkpoints and trained
-task-specific classifier heads are still external artifacts.
+task-specific classifier heads are external artifacts.
 
 Trained task-specific XGBoost classifier heads and large reproducibility
-artifacts will be hosted separately on Hugging Face. The artifact repository is
-currently private while the release package is being assembled:
+artifacts will be hosted separately on Hugging Face:
 
 https://huggingface.co/RiverZ/reclip
 
@@ -251,11 +257,3 @@ available, please cite the repository as:
   note = {Manuscript in preparation}
 }
 ```
-
-## Release Checklist
-
-- Add the final manuscript citation and DOI or preprint link.
-- Add a repository license at the root level.
-- Add the final project logo to `docs/assets/readme/`.
-- Confirm which large datasets and checkpoints are included directly, tracked by
-  Git LFS, or downloaded through documented setup steps.
