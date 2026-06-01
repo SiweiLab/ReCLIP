@@ -19,11 +19,11 @@ This repository contains the source code, baseline implementations, ablation
 analyses, and compressed task data used for the ReCLIP manuscript.
 
 <p align="center">
-  <img src="docs/assets/readme/figure1_overview.png" width="760" alt="Figure 1 overview of ReCLIP">
+  Figure 1 | Overview of ReCLIP for residue-centered modeling of protein-protein interactions (PPIs).
 </p>
 
 <p align="center">
-  <em>Figure 1 | Overview of ReCLIP for residue-centered modeling of protein-protein interactions (PPIs).</em>
+  <img src="docs/assets/readme/figure1_overview.png" width="760" alt="Figure 1 overview of ReCLIP">
 </p>
 
 <p align="center">
@@ -56,11 +56,11 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <summary>Mutation effect prediction</summary>
 
 <p align="center">
-  <img src="docs/assets/readme/figure2_mutation.png" width="820" alt="Figure 2 mutation effect prediction benchmark">
+  Figure 2 | ReCLIP accurately predicts mutation-induced perturbations to PPIs.
 </p>
 
 <p align="center">
-  <em>Figure 2 | ReCLIP accurately predicts mutation-induced perturbations to PPIs.</em>
+  <img src="docs/assets/readme/figure2_mutation.png" width="820" alt="Figure 2 mutation effect prediction benchmark">
 </p>
 
 </details>
@@ -69,11 +69,11 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <summary>PTM effect prediction</summary>
 
 <p align="center">
-  <img src="docs/assets/readme/figure3_ptm.png" width="760" alt="Figure 3 PTM effect prediction benchmark">
+  Figure 3 | ReCLIP generalizes to PTM-regulated interaction perturbations.
 </p>
 
 <p align="center">
-  <em>Figure 3 | ReCLIP generalizes to PTM-regulated interaction perturbations.</em>
+  <img src="docs/assets/readme/figure3_ptm.png" width="760" alt="Figure 3 PTM effect prediction benchmark">
 </p>
 
 </details>
@@ -82,11 +82,11 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <summary>Peptide-MHC binding prediction</summary>
 
 <p align="center">
-  <img src="docs/assets/readme/figure4_pmhc.png" width="760" alt="Figure 4 peptide-MHC binding prediction benchmark">
+  Figure 4 | ReCLIP enables zero-shot prediction of peptide-MHC binding.
 </p>
 
 <p align="center">
-  <em>Figure 4 | ReCLIP enables zero-shot prediction of peptide-MHC binding.</em>
+  <img src="docs/assets/readme/figure4_pmhc.png" width="760" alt="Figure 4 peptide-MHC binding prediction benchmark">
 </p>
 
 </details>
@@ -95,11 +95,11 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <summary>Biological interpretation</summary>
 
 <p align="center">
-  <img src="docs/assets/readme/figure5_interpretation.png" width="760" alt="Figure 5 biological interpretation analysis">
+  Figure 5 | ReCLIP captures biologically meaningful residue contexts.
 </p>
 
 <p align="center">
-  <em>Figure 5 | ReCLIP captures biologically meaningful residue contexts.</em>
+  <img src="docs/assets/readme/figure5_interpretation.png" width="760" alt="Figure 5 biological interpretation analysis">
 </p>
 
 </details>
@@ -108,11 +108,11 @@ analyses, and compressed task data used for the ReCLIP manuscript.
 <summary>Clinical application</summary>
 
 <p align="center">
-  <img src="docs/assets/readme/figure6_application_clinvar.png" width="760" alt="Figure 6 ClinVar clinical application analysis">
+  Figure 6 | ReCLIP identifies clinically relevant interaction perturbations.
 </p>
 
 <p align="center">
-  <em>Figure 6 | ReCLIP identifies clinically relevant interaction perturbations.</em>
+  <img src="docs/assets/readme/figure6_application_clinvar.png" width="760" alt="Figure 6 ClinVar clinical application analysis">
 </p>
 
 </details>
