@@ -239,8 +239,10 @@ These are runtime artifacts and are ignored by Git. The bundled data archives
 contain the task inputs needed by the main scripts; MINT checkpoints and trained
 task-specific classifier heads are external artifacts.
 
-Trained task-specific XGBoost classifier heads and large reproducibility
-artifacts will be hosted separately on Hugging Face:
+The mutation effect prediction XGBoost classifier head is available on Hugging
+Face under `classifier_heads/mutation/`. Additional PTM and peptide-MHC
+classifier heads, together with larger reproducibility artifacts, will be added
+after journal submission:
 
 https://huggingface.co/RiverZ/reclip
 
