@@ -306,15 +306,17 @@ https://huggingface.co/RiverZ/reclip
 
 ## Citation
 
-The manuscript is currently in preparation. Until the final citation is
-available, please cite the repository as:
+The ReCLIP manuscript is available as a [bioRxiv preprint](https://doi.org/10.64898/2026.06.01.729118). Please cite:
 
 ```bibtex
-@misc{reclip2026,
+@article{zhang2026learning,
   title = {Learning residue-level context for modeling protein-protein interactions},
-  author = {ReCLIP authors},
+  author = {Zhang, Zechuan and Yang, Zongxin and Liu, Anbang and Yu, Kun-Hsing and Zhao, Junhan and Yang, Yi and Neale, Benjamin and Chen, Siwei},
+  journal = {bioRxiv},
   year = {2026},
-  note = {Manuscript in preparation}
+  doi = {10.64898/2026.06.01.729118},
+  publisher = {Cold Spring Harbor Laboratory},
+  url = {https://doi.org/10.64898/2026.06.01.729118}
 }
 ```
 
