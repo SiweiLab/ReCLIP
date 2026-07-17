@@ -32,6 +32,7 @@ analyses, and compressed task data used for the ReCLIP manuscript.
   <a href="#highlights">Highlights</a> |
   <a href="#main-results">Main Results</a> |
   <a href="#repository-layout">Layout</a> |
+  <a href="#system-requirements">Requirements</a> |
   <a href="#installation">Installation</a> |
   <a href="#running-key-pipelines">Examples</a> |
   <a href="#data-and-artifacts">Artifacts</a> |
@@ -148,6 +149,32 @@ The main ReCLIP implementations are under the task-level `ReCLIP/`
 subdirectories. The release excludes earlier binary mutation pipelines, legacy
 cross-attention experiments, ESM-pLM/ESum-pLM folders, and global-embedding and
 local automation experiment scripts.
+
+## System Requirements
+
+ReCLIP is intended for a **64-bit Linux** environment. The following reference
+configuration is supported by the released pipelines:
+
+| Component | Version or requirement |
+| --- | --- |
+| Operating system | 64-bit Linux |
+| Python | 3.8 |
+| PyTorch | 1.12.1 |
+| CUDA Toolkit | 11.3.1 for GPU acceleration |
+| GPU | NVIDIA CUDA-capable GPU recommended; no specific model is required |
+| CPU-only execution | Supported by the available device flags, but substantially slower for feature extraction |
+
+Reference versions for the shared scientific-computing stack are NumPy 1.21.2,
+pandas 1.3.5, scikit-learn 1.0.2, SciPy 1.7.1, Biopython 1.79,
+FairScale 0.4.3, OmegaConf 2.3.0, and Einops 0.7.0. ReCLIP additionally
+requires Transformers 4.40.0 or later and tqdm 4.60.0 or later, as specified in
+[`requirements.txt`](requirements.txt), together with XGBoost for the validated
+classifier pipelines.
+
+CUDA is not strictly required. For GPU execution, use a PyTorch build compatible
+with the installed NVIDIA driver and CUDA runtime. Systems without an NVIDIA GPU
+can use the supported `--device cpu` or `--xgb-device cpu` options where
+available.
 
 ## Installation
 
