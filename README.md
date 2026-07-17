@@ -176,6 +176,12 @@ wget -O mint/mint.ckpt \
   https://huggingface.co/varunullanat2012/mint/resolve/main/mint.ckpt
 ```
 
+### Typical installation time
+
+Installation typically takes **5–10 minutes** on a standard desktop computer,
+including downloading the required checkpoint. The actual time depends mainly
+on network speed.
+
 If you are running on a machine without CUDA, pass the available `--device` or
 `--xgb-device` options where supported. Full feature extraction is substantially
 faster on a GPU because both ESM2 and MINT are large protein language models.
@@ -197,6 +203,21 @@ outputs.
 
 Run commands from the repository root unless a script-specific README says
 otherwise.
+
+### Expected runtime
+
+Typical demo runtimes fall into two categories:
+
+- **End-to-end workflow:** Feature extraction, classifier training, and
+  dataset-level inference take approximately **1–2 hours** in total.
+- **Pretrained single-sample inference:** Using existing trained weights to
+  predict one sample takes approximately **5–15 seconds**, including loading the
+  weights and running inference.
+
+These are approximate wall-clock times. Actual runtime varies with hardware,
+sequence length, dataset size, network speed for any first-run downloads, and
+whether reusable features are already cached. CPU-only execution can take
+substantially longer than GPU-accelerated execution.
 
 ### Mutation effect prediction
 
