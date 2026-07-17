@@ -268,3 +268,7 @@ available, please cite the repository as:
   note = {Manuscript in preparation}
 }
 ```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
