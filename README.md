@@ -8,6 +8,10 @@
 
 <h2 align="center">Learning residue-level context for modeling protein-protein interactions</h2>
 
+<p align="center">
+  <a href="https://doi.org/10.64898/2026.06.01.729118"><strong>Read the bioRxiv preprint</strong></a>
+</p>
+
 ReCLIP (<u>Re</u>sidue-level <u>C</u>ontext <u>L</u>earning for
 <u>I</u>nteracting <u>P</u>roteins) is a transformer-based framework for
 modeling protein-protein interactions (PPIs) at residue resolution. Instead of
