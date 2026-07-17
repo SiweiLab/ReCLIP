@@ -152,16 +152,16 @@ local automation experiment scripts.
 
 ## System Requirements
 
-ReCLIP is intended for a **64-bit Linux** environment. The following reference
-configuration is supported by the released pipelines:
+ReCLIP is intended for a **64-bit Linux** environment, including Ubuntu. The
+following reference configuration is supported by the released pipelines:
 
 | Component | Version or requirement |
 | --- | --- |
-| Operating system | 64-bit Linux |
+| Operating system | 64-bit Linux, including Ubuntu; use a release supported by the selected NVIDIA driver and CUDA stack |
 | Python | 3.8 |
 | PyTorch | 1.12.1 |
 | CUDA Toolkit | 11.3.1 for GPU acceleration |
-| GPU | NVIDIA CUDA-capable GPU recommended; no specific model is required |
+| GPU | Tested on NVIDIA A100 40GB and NVIDIA T4; other NVIDIA CUDA-capable GPUs are expected to work |
 | CPU-only execution | Supported by the available device flags, but substantially slower for feature extraction |
 
 Reference versions for the shared scientific-computing stack are NumPy 1.21.2,
@@ -174,7 +174,8 @@ classifier pipelines.
 CUDA is not strictly required. For GPU execution, use a PyTorch build compatible
 with the installed NVIDIA driver and CUDA runtime. Systems without an NVIDIA GPU
 can use the supported `--device cpu` or `--xgb-device cpu` options where
-available.
+available. GPU compatibility also depends on available device memory; sequence
+length and batch size determine the peak memory requirement.
 
 ## Installation
 
